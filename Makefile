@@ -23,6 +23,7 @@ SRCNAME	=	main.c\
 			libft/ft_strcmp.c\
 			parsing/parsing1.c\
 			parsing/parsing2.c\
+			parsing/parsing3.c\
 			parsing/get_next_line.c\
 			parsing/get_next_line_utils.c
 SRCS	=	${addprefix ${SRCDIR}, ${SRCNAME}}

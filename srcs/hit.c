@@ -6,11 +6,12 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:50:51 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 01:50:53 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/12 04:53:56 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "trace.h"
+#include <unistd.h>
 
 /* 각 오브젝트를 순회하며 ray가 맞았는지 확인하는 함수 */
 t_bool              hit(t_object *world, t_ray *ray, t_hit_record *rec)

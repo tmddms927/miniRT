@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:52:08 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 03:41:44 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/12 05:06:02 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void			parsing_start(char *argv, t_scene *scene)
 		read_n = get_next_line(fd, &line);
 		if (read_n < 0)
 			error_message_errno("failed reading file");
-		else if (!line)
+		else if (!*line)
 			break ;
 		check_object(line, scene);
 		free(line);
@@ -47,13 +47,12 @@ void			check_object(char *line, t_scene *scene)
 	char		**words;
 
 	words = ft_split(line);
-	//printf("word : %s\n", *words);
 	if (!*words)
 		return ;
 	if (ft_strcmp(*words, "R") == 0)
 		create_r(scene, words);
 	else if (ft_strcmp(*words, "A") == 0)
-		;
+		create_a(scene, words);
 	else if (ft_strcmp(*words, "c") == 0)
 		create_c(scene, words);
 	else if (ft_strcmp(*words, "l") == 0)
@@ -61,13 +60,13 @@ void			check_object(char *line, t_scene *scene)
 	else if (ft_strcmp(*words, "sp") == 0)
 		create_sp(scene, words);
 	else if (ft_strcmp(*words, "pl") == 0)
-		;
+		create_pl(scene, words);
 	else if (ft_strcmp(*words, "sq") == 0)
-		;
+		create_sq(scene, words);
 	else if (ft_strcmp(*words, "cy") == 0)
-		;
+		create_cy(scene, words);
 	else if (ft_strcmp(*words, "tr") == 0)
-		;
+		create_tr(scene, words);
 	else
 		error_message_basic("file error");
 }

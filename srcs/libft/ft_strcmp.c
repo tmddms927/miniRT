@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:51:37 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 03:13:09 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/12 05:18:27 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,17 @@ double			make_double(char *s, double min, double max)
 	if (num > max || num < min)
 		error_message_basic("file has wrong num");
 	return (num);
+}
+
+/*
+** 문자열 체크 후 free
+*/
+void			check_temp_and_free(char **temp, int i, char *s)
+{
+	if (temp[i])
+	{
+		printf("%s", s);
+        error_message_basic(" is wrong");
+	}
+	free(temp);
 }
