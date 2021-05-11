@@ -14,9 +14,10 @@ void        error_message_errno(char *msg);
 
 
 void        create_r(t_scene *scene, char **words);
-
+void        create_c(t_scene *scene, char **words);
 
 int			ft_strcmp(const char *s1, const char *s2);
 char		**ft_split(char const *s);
+char		**ft_split2(char const *s, char c);
 double		make_double(char *s);
 #endif

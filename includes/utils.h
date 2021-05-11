@@ -25,5 +25,6 @@ t_vec3          vunit(t_vec3 vec);
 t_vec3          vmin(t_vec3 vec1, t_vec3 vec2);
 void            oadd(t_object **list, t_object *new);
 t_object        *olast(t_object *list);
+t_camera        *cam_oadd(t_camera **list, t_camera *new);
 
 #endif

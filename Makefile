@@ -19,6 +19,7 @@ SRCNAME	=	main.c\
 			hit_triangle.c\
 			hit_cylinder.c\
 			libft/ft_split.c\
+			libft/ft_split2.c\
 			libft/ft_strcmp.c\
 			parsing/parsing1.c\
 			parsing/parsing2.c\

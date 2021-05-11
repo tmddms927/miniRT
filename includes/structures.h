@@ -15,6 +15,8 @@ typedef struct s_vec3   t_point3;
 typedef struct s_vec3   t_color3;
 typedef int             t_bool;
 typedef int             t_object_type;
+typedef struct s_camera t_camera;
+
 
 typedef struct      s_vec3{
     double          x;
@@ -35,6 +37,7 @@ typedef struct      s_camera{
     t_vec3          vertical;
     double          focal_len;
     t_point3        left_bottom;
+    t_camera        *next;
 }                   t_camera;
 
 typedef struct      s_canvas
@@ -162,7 +165,7 @@ typedef struct      s_light
 typedef struct      s_scene
 {
     t_canvas        canvas;
-    t_camera        camera;
+    t_camera        *camera;
     t_object        *world;
     t_object        *light;
     t_color3        ambient;

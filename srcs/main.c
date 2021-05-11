@@ -29,20 +29,20 @@ int key_hook(int keycode, t_vars *vars)
 t_scene		*scene_init(t_scene *scene, char *argv)
 {
 	t_object	*world;
-	//t_vars		vars;
-
 	t_object	*lights;
 	double		ka;
 
 	if (!(scene = (t_scene *)malloc(sizeof(t_scene) * 1)))
 		error_message_errno("failed malloc");
-	scene->canvas = canvas(1000, 600);
-	scene->camera = camera(&scene->canvas, point3(0, 0, 0));
-
+	//scene->canvas = canvas(1000, 600);
+	//scene->camera = cam_oadd(&scene->camera, camera(&scene->canvas, point3(0, 0, 0)));
+	//scene->camera = cam_oadd(&scene->camera, camera(&scene->canvas, point3(1, 1, 1)));
+	//printf("%f, %f, %f\n", scene->camera->orig.x, scene->camera->orig.y, scene->camera->orig.z);
+	//printf("%f, %f, %f\n", scene->camera->next->orig.x, scene->camera->next->orig.y, scene->camera->next->orig.z);
 	world = object(SQUARE, square(point3(0, 0, 0), vec3(0, 0, 0), 0), color3(0, 0, 0));
-	scene->world = world;
-	parsing_start(argv, scene);
+	scene->world = world;	
 	
+	parsing_start(argv, scene);
 	oadd(&world, object(TRIANGLE, triangle(point3(-3.5, -2, -3), point3(-2.5, 3, -3), point3(-1.5, -2, -3)), color3(0.6, 0.1, 0.3)));
 	/*
 	oadd(&world, object(SQUARE, square(point3(3, 3, -5), vec3(0.3, 1, 0.4), 2), color3(0.5, 0, 0)));
@@ -87,7 +87,7 @@ int         main(int argc, char **argv)
 		{
 			u = (double)i / (scene->canvas.width - 1);
 			v = (double)j / (scene->canvas.height - 1);
-			scene->ray = ray_primary(&scene->camera, u, v);
+			scene->ray = ray_primary(scene->camera, u, v);
 			pixel_color = ray_color(scene);
 			my_mlx_pixel_put(&image, i, scene->canvas.height - 1 - j, write_color(0, pixel_color));
 			++i;

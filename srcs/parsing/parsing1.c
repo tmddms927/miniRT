@@ -35,13 +35,13 @@ void			check_object(char *line, t_scene *scene)
 	char		**words;
 
 	words = ft_split(line);
-	printf("%s\n", words[0]);
+	//printf("%s\n", words[0]);
 	if (ft_strcmp(*words, "R") == 0)
 		create_r(scene, words);
 	else if (ft_strcmp(*words, "A") == 0)
 		;
 	else if (ft_strcmp(*words, "c") == 0)
-		;
+		create_c(scene, words);
 	else if (ft_strcmp(*words, "l") == 0)
 		;
 	else if (ft_strcmp(*words, "sp") == 0)
