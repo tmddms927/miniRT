@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:50:54 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 22:29:34 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/13 16:37:25 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int         main(int argc, char **argv)
 	(void)argc;
 	if (!(scene = (t_scene *)malloc(sizeof(t_scene) * 1)))
 		error_message_errno("failed malloc");
-	scene = scene_init(scene, argv[1]);
+	scene_init(scene, argv[1]);
 	vars.mlx = mlx_init();
 	vars.scene = scene;
 	vars.scene->main_camera = vars.scene->camera;

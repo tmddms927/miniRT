@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:52:08 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/13 14:49:44 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/13 16:12:54 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void			check_object(char *line, t_scene *scene)
 		create_cy(scene, words);
 	else if (ft_strcmp(*words, "tr") == 0)
 		create_tr(scene, words);
+	else if (*words[0] == '#')
+		;
 	else
 		error_message_basic("file error");
 	words_free(words);
@@ -98,7 +100,7 @@ void			error_message_basic(char *msg)
 {
 	write(1, "error: ", 7);
 	printf("%s\n", msg);
-	exit(0);
+	exit(1);
 }
 
 /*
@@ -108,5 +110,5 @@ void			error_message_errno(char *msg)
 {
 	write(1, "error: ", 7);
 	perror(msg);
-	exit(0);
+	exit(1);
 }

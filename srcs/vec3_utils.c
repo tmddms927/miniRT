@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:51:13 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 01:51:15 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/13 16:13:03 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ t_vec3          vunit(t_vec3 vec)
     if (len == 0)
     {
         printf("Error\nDevidef is 0\n");
-        exit(0);
+        exit(1);
     }
     vec.x /= len;
     vec.y /= len;

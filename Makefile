@@ -1,6 +1,6 @@
 OUT		=	miniRT
 CC		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra -fsanitize=address -g
+CFLAGS	=	-Wall -Werror -Wextra
 CLIB	=	-Lmlx -lmlx -framework OpenGL -framework Appkit -Imlx 
 SRCDIR  =	./srcs/
 SRCNAME	=	main.c\

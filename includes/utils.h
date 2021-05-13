@@ -35,7 +35,7 @@ void		    camera_input_image(t_vars vars, t_scene *scene);
 void			next_camera(t_vars vars);
 void            my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int             key_hook(int keycode, t_vars *vars);
-t_scene		    *scene_init(t_scene *scene, char *argv);
+void		scene_init(t_scene *scene, char *argv);
 
 
 double		write_color(int t, t_color3 pixel_color);
