@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:50:29 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/13 15:01:13 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/13 20:44:13 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ void		set_camera(t_canvas *canvas, t_camera *cam)
 	t_vec3	temp;
 	
 	temp = vec3(0, 1, 0);
-	cam->horizontal = vunit(vcross(temp, cam->normal));
-	cam->vertical = vunit(vcross(cam->normal, cam->horizontal));
-	cam->viewport_h = 2 * tan(cam->fov / 2.0);
-	cam->viewport_w = cam->viewport_w * canvas->aspect_ratio;
+	cam->horizontal = vunit(vcross(cam->normal, temp));
+	cam->vertical = vunit(vcross(cam->normal, vmult(cam->horizontal, -1)));
+	cam->viewport_w = 2 * tan(cam->fov * 3.14 / 360.0);
+	cam->viewport_h= cam->viewport_w / canvas->aspect_ratio;
 	cam->focal_len = 1.0;
 	cam->left_bottom = vminus(vminus(vminus(cam->orig, vdivide(cam->horizontal, 2)),
 								vdivide(cam->vertical, 2)), vec3(0, 0, cam->focal_len));

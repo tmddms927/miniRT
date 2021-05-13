@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:51:05 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 14:21:53 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/13 20:24:01 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ t_color3        point_light_get(t_scene *scene, t_light *light)
     double      spec;
     double      ksn;
     double      ks;
-    /* 광원 밝기 */
-    //double      brightness;
 
     /* 그림자 처리 */
     light_dir = vminus(light->origin, scene->rec.p);
@@ -65,17 +63,20 @@ t_color3        point_light_get(t_scene *scene, t_light *light)
     /* specular light */
     view_dir = vunit(vmult(scene->ray.dir, -1));
     reflect_dir = reflect(vmult(light_dir, -1), scene->rec.normal);
-    ksn = 99; // shininess value
+    ksn = 55; // shininess value
     ks = 0.9; // specular strength
     spec = pow(fmax(vdot(view_dir, reflect_dir), 0.0), ksn);
-    specular =  vmult(vmult(light->light_color, ks), spec);
+    specular = vmult(light->light_color, ks);
+    specular = vmult(vmult(light->light_color, ks), spec);
     return (vplus(diffuse, specular));
 }
 
 /* 반사광 계산 함수 */
 t_vec3			reflect(t_vec3 v, t_vec3 n)
 {
-	//v - 2 * dot(v, n) * n;
+	/*
+    ** v - 2 * dot(v, n) * n;
+    */
 	return (vminus(v, vmult(n, vdot(v, n) * 2)));
 }
 

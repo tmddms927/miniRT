@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:52:12 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/13 15:35:31 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/13 17:45:31 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ void			create_c(t_scene *scene, char **words)
 	check_temp_and_free(temp, 3, "c");
 	temp = ft_split2(words[2], ',');
 	cam = cam_olast(scene->camera);
-	cam->normal = vec3(make_double(temp[0], -1, 1), make_double(temp[1], -1, 1),
-		make_double(temp[2], -1, 1));
+	cam->normal = vunit(vec3(make_double(temp[0], -1, 1), make_double(temp[1], -1, 1),
+		make_double(temp[2], -1, 1)));
 	check_temp_and_free(temp, 3, "c");
 	cam->fov = make_double(words[3], 0, 180);
 	set_camera(&scene->canvas, cam);

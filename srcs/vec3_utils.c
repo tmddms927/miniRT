@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:51:13 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/13 16:13:03 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/13 18:24:04 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,7 @@ t_vec3          vmin(t_vec3 vec1, t_vec3 vec2)
     return (vec1);
     */
 
-     if (vec1.x > vec2.x)
+    if (vec1.x > vec2.x)
          vec1.x = vec2.x;
      else if (vec1.y > vec2.y)
         vec1.y = vec2.y;

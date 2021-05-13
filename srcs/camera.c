@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 19:40:55 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/13 16:42:06 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/13 17:47:35 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int				key_hook(int keycode, t_vars *vars)
 	if (keycode == 53)
 	{
 		mlx_destroy_window(vars->mlx, vars->win);
-		exit(1);
+		exit(0);
 	}
 	if (keycode == 8)
 	{
