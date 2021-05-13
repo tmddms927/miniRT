@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:51:37 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 05:18:27 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/12 20:07:54 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,34 @@ double			make_double(char *s, double min, double max)
 */
 void			check_temp_and_free(char **temp, int i, char *s)
 {
+	int			j;
+
+	j = 0;
 	if (temp[i])
 	{
 		printf("%s", s);
         error_message_basic(" is wrong");
 	}
+	while (temp[j])
+	{
+		free(temp[j]);
+		j++;
+	}
 	free(temp);
+}
+
+/*
+** 문자열 free
+*/
+void			words_free(char **words)
+{
+	int			j;
+
+	j = 0;
+	while (words[j])
+	{
+		free(words[j]);
+		j++;
+	}
+	free(words);
 }

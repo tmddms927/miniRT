@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:51:57 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 01:52:00 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/12 14:02:38 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char		*ft_strjoin(char *s1, char *s2)
 		return (single_str(s2));
 	else if (!s2)
 		return (single_str2(s1));
-	if (!(temp = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
+	if (!(temp = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1)))
 		return (0);
 	while (s1[++i])
 		temp[i] = s1[i];

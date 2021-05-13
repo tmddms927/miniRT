@@ -32,7 +32,7 @@ t_bool		check_tr(t_vec3 a, t_vec3 b, t_vec3 c, t_vec3 h);
 /* cylinder 관련 */
 double		hit_cylinder(t_object *world, t_ray *ray, t_hit_record *rec);
 t_bool		cylinder_discriminant(t_cylinder *cylinder, t_ray *ray, t_hit_record *rec);
-
-int			get_cylinder_hitpoint(t_cy_set *cy, t_hit_record *rec);
+t_bool			cylinder_height_check(t_cylinder *cylinder, t_hit_record *rec);
+//int			get_cylinder_hitpoint(t_cy_set *cy, t_hit_record *rec);
 
 #endif

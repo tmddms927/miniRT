@@ -6,11 +6,12 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:51:05 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 01:51:06 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/12 14:21:53 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "trace.h"
+#include <unistd.h>
 
 /* 광원과 그림자를 처리해주는 함수(ambient + diffuse + specular) */
 t_color3		phong_lighting(t_scene *scene)
@@ -68,9 +69,7 @@ t_color3        point_light_get(t_scene *scene, t_light *light)
     ks = 0.9; // specular strength
     spec = pow(fmax(vdot(view_dir, reflect_dir), 0.0), ksn);
     specular =  vmult(vmult(light->light_color, ks), spec);
-    //specular = vmult(light->light_color, ks);
     return (vplus(diffuse, specular));
-    //return (  vmult( vplus(specular, diffuse), brightness), color3(0,0,0)  );
 }
 
 /* 반사광 계산 함수 */

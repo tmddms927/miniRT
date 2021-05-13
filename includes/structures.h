@@ -17,7 +17,6 @@ typedef int             t_bool;
 typedef int             t_object_type;
 typedef struct s_camera t_camera;
 
-
 typedef struct      s_vec3{
     double          x;
     double          y;
@@ -29,26 +28,6 @@ typedef struct      s_ray{
     t_vec3          dir;
 }                   t_ray;
 
-typedef struct      s_camera{
-    t_point3        orig;
-    double          viewport_h;
-    double          viewport_w;
-    t_vec3          horizontal;
-    t_vec3          vertical;
-    double          focal_len;
-    t_point3        left_bottom;
-    t_vec3          normal;
-    double          fov;
-    t_camera        *next;
-}                   t_camera;
-
-typedef struct      s_canvas
-{
-    int             width;
-    int             height;
-    double          aspect_ratio;
-}                   t_canvas;
-
 /* 이미지의 정보를 나타내는 변수를 저장한 구조체 */
 typedef struct      s_data
 {
@@ -59,12 +38,26 @@ typedef struct      s_data
     int             endian;
 }                   t_data;
 
-/* mlx 구조체 mlx 포인터와 생성할 win 포인터를 가지고 있다 */
-typedef struct      s_vars {
-    void            *mlx;
-    void            *win;
-}                   t_vars;
+typedef struct      s_camera{
+    t_point3        orig;
+    double          viewport_h;
+    double          viewport_w;
+    t_vec3          horizontal;
+    t_vec3          vertical;
+    double          focal_len;
+    t_point3        left_bottom;
+    t_vec3          normal;
+    double          fov;
+    t_data		    image;
+    t_camera        *next;
+}                   t_camera;
 
+typedef struct      s_canvas
+{
+    int             width;
+    int             height;
+    double          aspect_ratio;
+}                   t_canvas;
 
 /* hit 정보 구조체 */
 typedef struct      s_hit_record
@@ -131,30 +124,6 @@ typedef struct      s_cylinder
     double          height;
 }                   t_cylinder;
 
-/* 원기둥 판별식 요소 */
-typedef struct	s_cy_set
-{
-	double		a;
-	double		b;
-	double		c;
-	double		discriminant;
-	double		sqrtd;
-	double		t;
-	t_vec3		delp;
-	t_point3	pa;
-	t_point3	p;
-	t_vec3		normal;
-}				t_cy_set;
-
-/* 원기둥 뚜껑 원 판별식 요소 */
-typedef struct  s_disc_set
-{
-    double      t;
-    double      denom;
-    t_point3    to_hit;
-    t_point3    p;
-}               t_disc_set;
-
 /* 점광원 구조체 */
 typedef struct      s_light
 {
@@ -173,6 +142,14 @@ typedef struct      s_scene
     t_color3        ambient;
     t_ray           ray;
     t_hit_record    rec;
+    t_camera        *main_camera;
 }                   t_scene;
+
+/* mlx 구조체 mlx 포인터와 생성할 win 포인터를 가지고 있다 */
+typedef struct      s_vars {
+    void            *mlx;
+    void            *win;
+    t_scene         *scene;
+}                   t_vars;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:52:08 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 05:06:02 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/13 14:49:44 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 #include "get_next_line.h"
 #include "parsing.h"
 
-/* parsing 시작 함수 */
+/*
+** parsing 시작 함수
+*/
 void			parsing_start(char *argv, t_scene *scene)
 {
 	int			fd;
 	char		*line;
 	int			read_n;
-
-	(void)argv;
 
 	check_file_name(argv);
 	if ((fd = open(argv, O_RDONLY)) < 0)
@@ -34,19 +34,24 @@ void			parsing_start(char *argv, t_scene *scene)
 		if (read_n < 0)
 			error_message_errno("failed reading file");
 		else if (!*line)
+		{
+			free(line);
 			break ;
+		}
 		check_object(line, scene);
 		free(line);
 	}
 	close(fd);
 }
 
-/* object 유형 체크 */
+/*
+** object 유형 체크
+*/
 void			check_object(char *line, t_scene *scene)
 {
 	char		**words;
-
 	words = ft_split(line);
+	printf("make object : %s\n", *words);
 	if (!*words)
 		return ;
 	if (ft_strcmp(*words, "R") == 0)
@@ -69,9 +74,12 @@ void			check_object(char *line, t_scene *scene)
 		create_tr(scene, words);
 	else
 		error_message_basic("file error");
+	words_free(words);
 }
 
-/* 파일 이름 체크 */
+/*
+** 파일 이름 체크
+*/
 void			check_file_name(char *argv)
 {
 	int			i;
@@ -83,7 +91,9 @@ void			check_file_name(char *argv)
 		error_message_basic("wrong file name");
 }
 
-/* 에러메세지 출력(errno 값 없을 경우) */
+/*
+** 에러메세지 출력(errno 값 없을 경우)
+*/
 void			error_message_basic(char *msg)
 {
 	write(1, "error: ", 7);
@@ -91,7 +101,9 @@ void			error_message_basic(char *msg)
 	exit(0);
 }
 
-/* 에러메세지 출력(errno 값 있을 경우) */
+/*
+**에러메세지 출력(errno 값 있을 경우)
+*/
 void			error_message_errno(char *msg)
 {
 	write(1, "error: ", 7);

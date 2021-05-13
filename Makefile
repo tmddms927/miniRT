@@ -1,26 +1,29 @@
 OUT		=	miniRT
 CC		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra
-CLIB	=	-Lmlx -lmlx -framework OpenGL -framework Appkit -Imlx
+CFLAGS	=	-Wall -Werror -Wextra -fsanitize=address -g
+CLIB	=	-Lmlx -lmlx -framework OpenGL -framework Appkit -Imlx 
 SRCDIR  =	./srcs/
 SRCNAME	=	main.c\
 			canvas.c\
-			print.c\
+			utils.c\
 			ray.c\
 			vec3_utils.c\
-			hit_sphere.c\
 			object_create.c\
-			normal.c\
-			hit.c\
 			object_utils.c\
 			phong_lighting.c\
-			hit_plane.c\
-			hit_square.c\
-			hit_triangle.c\
-			hit_cylinder.c\
+			camera.c\
+			\
+			hit/hit.c\
+			hit/hit_sphere.c\
+			hit/hit_plane.c\
+			hit/hit_square.c\
+			hit/hit_triangle.c\
+			hit/hit_cylinder.c\
+			\
 			libft/ft_split.c\
 			libft/ft_split2.c\
 			libft/ft_strcmp.c\
+			\
 			parsing/parsing1.c\
 			parsing/parsing2.c\
 			parsing/parsing3.c\
@@ -31,12 +34,12 @@ INCDIR	=	./includes/
 OBJS	=	${SRCS:.c=.o}
 
 test	:	re
-			./${OUT} 2.rt
+			./${OUT} 1.rt
 
 all		: $(OUT)
 
 .c.o	:
-	${CC} ${CFLAGS} -I ${INCDIR} -c ${<} -o ${<:.c=.o}
+	${CC} ${CFLAGS} -I ${INCDIR} -I ./mlx -c ${<} -o ${<:.c=.o}
 
 ${OUT}: ${OBJS}
 	${CC} ${CFLAGS} ${CLIB} -o ${OUT} ${OBJS}
