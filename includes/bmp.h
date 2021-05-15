@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 18:33:48 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/15 16:38:47 by hyson            ###   ########.fr       */
+/*   Updated: 2021/05/15 18:20:48 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include "minirt.h"
 # include "structures.h"
 
-#pragma pack(push, 1)
+# pragma pack(push, 1)
+
 typedef struct		s_fileheader
 {
 	unsigned char	sign1;
@@ -33,7 +34,7 @@ typedef struct		s_infoheader
 	unsigned int	witdh;
 	unsigned int	height;
 	unsigned short	planes;
-	unsigned short	bitCount;
+	unsigned short	bitcount;
 	unsigned int	compression;
 	unsigned int	sizeimage;
 	unsigned int	x_pelspermeter;
@@ -47,10 +48,10 @@ typedef struct		s_bmp
 	t_fileheader	file_h;
 	t_infoheader	info_h;
 }					t_bmp;
-#pragma pack(pop)
+# pragma pack(pop)
 
-void		bmp_save(t_scene *scene);
-void		check_save(char *argv, t_scene *scene);
-t_bmp		bmp_set_header(t_scene *scene);
+void				bmp_save(t_scene *scene);
+void				check_save(char *argv, t_scene *scene);
+t_bmp				bmp_set_header(t_scene *scene);
 
 #endif

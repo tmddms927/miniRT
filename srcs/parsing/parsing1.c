@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:52:08 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/15 17:54:13 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 18:16:52 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void			parsing_start(int argc, char *argv, t_scene *scene)
 		check_object(line, scene);
 		free(line);
 	}
+	free(line);
 	if (read_n < 0)
 		error_message_errno("failed reading file");
 	close(fd);
@@ -54,8 +55,11 @@ void			check_object(char *line, t_scene *scene)
 	words = ft_split(line);
 	if (*words)
 		printf("make object : %s\n", *words);
-	if ((words = ft_split(line)) && !*words)
+	if (!*words)
+	{
+		free(words);
 		return ;
+	}
 	if (ft_strcmp(*words, "R") == 0)
 		create_r(scene, words);
 	else if (ft_strcmp(*words, "A") == 0)

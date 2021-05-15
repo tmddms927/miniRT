@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 18:00:17 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/15 16:47:22 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 18:20:53 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_bmp	bmp_set_header(t_scene *scene)
 	bmp.info_h.witdh = scene->canvas.width;
 	bmp.info_h.height = -scene->canvas.height;
 	bmp.info_h.planes = 1;
-	bmp.info_h.bitCount = 32;
+	bmp.info_h.bitcount = 32;
 	bmp.info_h.compression = 0;
 	bmp.info_h.sizeimage = 4 * scene->canvas.width * scene->canvas.height;
 	bmp.info_h.x_pelspermeter = scene->canvas.width;

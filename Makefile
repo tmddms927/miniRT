@@ -6,13 +6,13 @@
 #    By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/14 11:28:27 by seungoh           #+#    #+#              #
-#    Updated: 2021/05/15 17:52:56 by seungoh          ###   ########.fr        #
+#    Updated: 2021/05/15 18:00:57 by seungoh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 OUT		=	miniRT
 CC		=	clang
-CFLAGS	=	-Wall -Werror -Wextra -fsanitize=address -g
+CFLAGS	=	-Wall -Werror -Wextra
 CLIB	=	-Lmlx -lmlx -framework OpenGL -framework Appkit -Imlx 
 SRCDIR  =	./srcs/
 SRCNAME	=	main.c\
