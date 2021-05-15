@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec3_utils4.c                                      :+:      :+:    :+:   */
+/*   camera_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/15 10:25:26 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/15 16:31:26 by hyson            ###   ########.fr       */
+/*   Created: 2021/05/15 16:54:37 by seungoh           #+#    #+#             */
+/*   Updated: 2021/05/15 17:10:55 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "minirt.h"
+#include "structures.h"
 
-/*
-** 두 벡터의 원소를 비교하여 작은 값들만 반환
-*/
-
-t_vec3	vmin(t_vec3 vec1, t_vec3 vec2)
+int				init_image(int *j, t_vars vars, t_scene *scene, t_camera *cam)
 {
-	if (vec1.x > vec2.x)
-		vec1.x = vec2.x;
-	if (vec1.y > vec2.y)
-		vec1.y = vec2.y;
-	if (vec1.z > vec2.z)
-		vec1.z = vec2.z;
-	return (vec1);
-}
-
-/*
-** 벡터 값 설정
-*/
-
-void	v_set(t_vec3 *vec, double x, double y, double z)
-{
-	vec->x = x;
-	vec->y = y;
-	vec->z = z;
+	cam->image.img = mlx_new_image(vars.mlx, scene->canvas.width,
+						scene->canvas.height);
+	cam->image.addr = mlx_get_data_addr(cam->image.img,
+						&cam->image.bits_per_pixel, &cam->image.line_length,
+						&cam->image.endian);
+	*j = scene->canvas.height;
+	return (1);
 }

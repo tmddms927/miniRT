@@ -6,15 +6,15 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:52:08 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/15 10:43:13 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 17:54:13 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "structures.h"
-#include "utils.h"
-#include "trace.h"
 #include "get_next_line.h"
 #include "parsing.h"
+#include "structures.h"
+#include "trace.h"
+#include "utils.h"
 
 /*
 ** parsing 시작 함수
@@ -50,9 +50,11 @@ void			parsing_start(int argc, char *argv, t_scene *scene)
 void			check_object(char *line, t_scene *scene)
 {
 	char		**words;
+
 	words = ft_split(line);
-	printf("make object : %s\n", *words);
-	if (!*words)
+	if (*words)
+		printf("make object : %s\n", *words);
+	if ((words = ft_split(line)) && !*words)
 		return ;
 	if (ft_strcmp(*words, "R") == 0)
 		create_r(scene, words);
@@ -62,20 +64,8 @@ void			check_object(char *line, t_scene *scene)
 		create_c(scene, words);
 	else if (ft_strcmp(*words, "l") == 0)
 		create_l(scene, words);
-	else if (ft_strcmp(*words, "sp") == 0)
-		create_sp(scene, words);
-	else if (ft_strcmp(*words, "pl") == 0)
-		create_pl(scene, words);
-	else if (ft_strcmp(*words, "sq") == 0)
-		create_sq(scene, words);
-	else if (ft_strcmp(*words, "cy") == 0)
-		create_cy(scene, words);
-	else if (ft_strcmp(*words, "tr") == 0)
-		create_tr(scene, words);
-	else if (*words[0] == '#')
-		;
 	else
-		error_message_basic("file error");
+		check_object2(scene, words);
 	words_free(words);
 }
 

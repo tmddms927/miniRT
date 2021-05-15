@@ -6,13 +6,13 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:51:57 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 14:02:38 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 16:29:20 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t		ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
@@ -22,7 +22,7 @@ size_t		ft_strlen(const char *s)
 	return (i);
 }
 
-char		*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*temp;
 	int		i;
@@ -45,7 +45,7 @@ char		*ft_strjoin(char *s1, char *s2)
 	return (temp);
 }
 
-char		*single_str(char *s)
+char	*single_str(char *s)
 {
 	char	*temp;
 	int		i;
@@ -59,7 +59,7 @@ char		*single_str(char *s)
 	return (temp);
 }
 
-char		*single_str2(char *s)
+char	*single_str2(char *s)
 {
 	char	*temp;
 	int		i;

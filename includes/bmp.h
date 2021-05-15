@@ -6,14 +6,15 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 18:33:48 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/15 15:30:57 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 16:38:47 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BMP_H
 # define BMP_H
 
-#include "minirt.h"
+# include "minirt.h"
+# include "structures.h"
 
 #pragma pack(push, 1)
 typedef struct		s_fileheader

@@ -6,21 +6,21 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:51:37 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/14 11:33:16 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 16:28:37 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "structures.h"
-#include "utils.h"
-#include "trace.h"
 #include "get_next_line.h"
 #include "parsing.h"
+#include "structures.h"
+#include "trace.h"
+#include "utils.h"
 
 /*
 ** 문자열 비교 함수
 */
 
-int				ft_strcmp(const char *s1, const char *s2)
+int		ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 || *s2)
 	{
@@ -36,10 +36,10 @@ int				ft_strcmp(const char *s1, const char *s2)
 ** char *형 double로 변환
 */
 
-double			make_double1(char *s, int minus, double a)
+double	make_double1(char *s, int minus, double a)
 {
-	double		b;
-	int			i;
+	double	b;
+	int		i;
 
 	b = 0;
 	i = 0;
@@ -63,11 +63,11 @@ double			make_double1(char *s, int minus, double a)
 	return ((a = a + b * pow(10, -i)) * minus);
 }
 
-double			make_double(char *s, double min, double max)
+double	make_double(char *s, double min, double max)
 {
-	double		num;
-	int			minus;
-	double		a;
+	double	num;
+	int		minus;
+	double	a;
 
 	if (!s)
 		error_message_basic("file has wrong num");
@@ -85,9 +85,9 @@ double			make_double(char *s, double min, double max)
 ** 문자열 체크 후 free
 */
 
-void			check_temp_and_free(char **temp, int i, char *s)
+void	check_temp_and_free(char **temp, int i, char *s)
 {
-	int			j;
+	int	j;
 
 	j = 0;
 	if (temp[i])
@@ -107,9 +107,9 @@ void			check_temp_and_free(char **temp, int i, char *s)
 ** 문자열 free
 */
 
-void			words_free(char **words)
+void	words_free(char **words)
 {
-	int			j;
+	int	j;
 
 	j = 0;
 	while (words[j])

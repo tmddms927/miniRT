@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:52:03 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 01:52:05 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 17:47:01 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int				get_next_line(int fd, char **line)
 {
-	static char *backup[OPEN_MAX];
-	char		buf[BUFFER_SIZE + 1];
+	static char	*backup[OPEN_MAX];
 	int			read_size;
 	int			end_index;
+	char		buf[BUFFER_SIZE + 1];
 
 	if (fd < 0 || !line || BUFFER_SIZE < 1)
 		return (-1);

@@ -6,7 +6,7 @@
 #    By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/14 11:28:27 by seungoh           #+#    #+#              #
-#    Updated: 2021/05/15 10:29:50 by seungoh          ###   ########.fr        #
+#    Updated: 2021/05/15 17:52:56 by seungoh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,12 @@ SRCNAME	=	main.c\
 			utils.c\
 			ray.c\
 			object_create.c\
+			object_create2.c\
 			object_utils.c\
 			phong_lighting.c\
 			camera.c\
 			bmp_save.c\
+			camera_utils.c\
 			\
 			vec3_utils/vec3_utils1.c\
 			vec3_utils/vec3_utils2.c\
@@ -44,6 +46,7 @@ SRCNAME	=	main.c\
 			parsing/parsing1.c\
 			parsing/parsing2.c\
 			parsing/parsing3.c\
+			parsing/parsing4.c\
 			parsing/get_next_line.c\
 			parsing/get_next_line_utils.c
 SRCS	=	${addprefix ${SRCDIR}, ${SRCNAME}}

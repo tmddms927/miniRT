@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 11:25:31 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/15 10:41:22 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 17:30:05 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 /*
 ** vec3_utils.c
 */
+
 t_vec3			vec3(double x, double y, double z);
 t_point3		point3(double x, double y, double z);
 t_color3		color3(double r, double g, double b);
@@ -55,15 +56,16 @@ void			camera_input_image(t_vars vars, t_scene *scene);
 void			next_camera(t_vars vars);
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void			scene_init(t_scene *scene, char *argv, int argc);
+int				init_image(int *j, t_vars vars, t_scene *scene, t_camera *cam);
 
 /*
 ** utils.c
 */
 
-double			write_color(int t, t_color3 pixel_color);
+double			wc(int t, t_color3 pixel_color);
 void			check_window_size(t_vars vars);
 void			set_face_normal(t_ray *ray, t_hit_record *rec);
 int				key_hook(int keycode, t_vars *vars);
-int 		    close_window(t_vars *vars);
+int				close_window(t_vars *vars);
 
 #endif

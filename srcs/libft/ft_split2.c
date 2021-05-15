@@ -6,20 +6,20 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:51:32 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/14 11:29:33 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 16:28:32 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "structures.h"
-#include "utils.h"
-#include "trace.h"
 #include "get_next_line.h"
 #include "parsing.h"
+#include "structures.h"
+#include "trace.h"
+#include "utils.h"
 
-int			count_word2(char const *s, char c)
+int		count_word2(char const *s, char c)
 {
-	int		i;
-	int		count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -39,7 +39,7 @@ int			count_word2(char const *s, char c)
 	return (count);
 }
 
-char		**free_all2(char **words, int j)
+char	**free_all2(char **words, int j)
 {
 	while (--j > 0)
 		free(words[j]);
@@ -47,9 +47,9 @@ char		**free_all2(char **words, int j)
 	return (0);
 }
 
-void		put_char2(char *s, char *c, int i)
+void	put_char2(char *s, char *c, int i)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while (j < i)
@@ -60,10 +60,10 @@ void		put_char2(char *s, char *c, int i)
 	s[j] = 0;
 }
 
-char		**put_words2(char **words, char const *s, char c)
+char	**put_words2(char **words, char const *s, char c)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -89,7 +89,7 @@ char		**put_words2(char **words, char const *s, char c)
 	return (words);
 }
 
-char		**ft_split2(char const *s, char c)
+char	**ft_split2(char const *s, char c)
 {
 	int		words_c;
 	char	**words;

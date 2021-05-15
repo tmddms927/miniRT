@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 14:21:02 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/15 10:40:43 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 17:51:06 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 void		parsing_start(int argc, char *argv, t_scene *scene);
 void		check_object(char *line, t_scene *scene);
+void		check_object2(t_scene *scene, char **words);
 
 void		check_file_name(char *argv);
 void		error_message_basic(char *msg);
