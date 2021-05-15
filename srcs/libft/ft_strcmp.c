@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:51:37 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 20:07:54 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/14 11:33:16 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 /*
 ** 문자열 비교 함수
 */
+
 int				ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 || *s2)
@@ -34,6 +35,7 @@ int				ft_strcmp(const char *s1, const char *s2)
 /*
 ** char *형 double로 변환
 */
+
 double			make_double1(char *s, int minus, double a)
 {
 	double		b;
@@ -82,6 +84,7 @@ double			make_double(char *s, double min, double max)
 /*
 ** 문자열 체크 후 free
 */
+
 void			check_temp_and_free(char **temp, int i, char *s)
 {
 	int			j;
@@ -90,7 +93,7 @@ void			check_temp_and_free(char **temp, int i, char *s)
 	if (temp[i])
 	{
 		printf("%s", s);
-        error_message_basic(" is wrong");
+		error_message_basic(" is wrong");
 	}
 	while (temp[j])
 	{
@@ -103,6 +106,7 @@ void			check_temp_and_free(char **temp, int i, char *s)
 /*
 ** 문자열 free
 */
+
 void			words_free(char **words)
 {
 	int			j;

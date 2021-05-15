@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:52:08 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/13 16:12:54 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 10:43:13 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,34 +19,34 @@
 /*
 ** parsing 시작 함수
 */
-void			parsing_start(char *argv, t_scene *scene)
+
+void			parsing_start(int argc, char *argv, t_scene *scene)
 {
 	int			fd;
 	char		*line;
 	int			read_n;
 
+	if (argc > 3)
+		error_message_errno("too many argument");
+	else if (argc == 1)
+		error_message_errno("too few argument");
 	check_file_name(argv);
 	if ((fd = open(argv, O_RDONLY)) < 0)
 		error_message_errno("failed opening file");
-	while (1)
+	while ((read_n = get_next_line(fd, &line)))
 	{
-		read_n = get_next_line(fd, &line);
-		if (read_n < 0)
-			error_message_errno("failed reading file");
-		else if (!*line)
-		{
-			free(line);
-			break ;
-		}
 		check_object(line, scene);
 		free(line);
 	}
+	if (read_n < 0)
+		error_message_errno("failed reading file");
 	close(fd);
 }
 
 /*
 ** object 유형 체크
 */
+
 void			check_object(char *line, t_scene *scene)
 {
 	char		**words;
@@ -82,6 +82,7 @@ void			check_object(char *line, t_scene *scene)
 /*
 ** 파일 이름 체크
 */
+
 void			check_file_name(char *argv)
 {
 	int			i;
@@ -96,6 +97,7 @@ void			check_file_name(char *argv)
 /*
 ** 에러메세지 출력(errno 값 없을 경우)
 */
+
 void			error_message_basic(char *msg)
 {
 	write(1, "error: ", 7);
@@ -104,8 +106,9 @@ void			error_message_basic(char *msg)
 }
 
 /*
-**에러메세지 출력(errno 값 있을 경우)
+** 에러메세지 출력(errno 값 있을 경우)
 */
+
 void			error_message_errno(char *msg)
 {
 	write(1, "error: ", 7);

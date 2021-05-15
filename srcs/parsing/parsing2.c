@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:52:12 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/13 17:45:31 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 09:19:58 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@
 /*
 ** Resolution
 */
+
 void			create_r(t_scene *scene, char **words)
 {
-	scene->canvas = canvas(make_double(words[1], -DBL_MAX, DBL_MAX),
-		make_double(words[2], -DBL_MAX, DBL_MAX));
+	scene->canvas = canvas(make_double(words[1], 0.1, DBL_MAX),
+		make_double(words[2], 0.1, DBL_MAX));
 	if (words[3])
 		error_message_basic("R is wrong");
 }
@@ -31,6 +32,7 @@ void			create_r(t_scene *scene, char **words)
 /*
 ** Ambient lightning
 */
+
 void			create_a(t_scene *scene, char **words)
 {
 	char		**temp;
@@ -49,6 +51,7 @@ void			create_a(t_scene *scene, char **words)
 /*
 ** Camera
 */
+
 void			create_c(t_scene *scene, char **words)
 {
 	char		**temp;
@@ -74,6 +77,7 @@ void			create_c(t_scene *scene, char **words)
 /*
 ** Light
 */
+
 void			create_l(t_scene *scene, char **words)
 {
 	char		**temp;
@@ -100,6 +104,7 @@ void			create_l(t_scene *scene, char **words)
 /*
 ** Sphere
 */
+
 void			create_sp(t_scene *scene, char **words)
 {
 	char		**temp;

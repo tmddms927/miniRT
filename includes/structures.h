@@ -11,6 +11,8 @@
 # define EPSILON 1e-6 // 0.000001 더블 데이터 근사값
 # define LUMEN 3  // 기준광선속의 곱으로 빛의 세기 조절 이 값을 조절하여 장면의 밝기를 조절할 수 있다.
 
+#include "minirt.h"
+
 typedef struct s_vec3   t_point3;
 typedef struct s_vec3   t_color3;
 typedef int             t_bool;
@@ -70,6 +72,7 @@ typedef struct      s_hit_record
     double          tmax;
     /* 광선의 원점과 교점 사이의 거리 */
     double          t;
+    double          t2;
     t_bool          front_face;
     t_color3        albedo;
 }                   t_hit_record;

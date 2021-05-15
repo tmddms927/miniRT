@@ -6,18 +6,17 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 14:21:02 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 20:59:08 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 10:40:43 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_H
 # define PARSING_H
-# include "structures.h"
-# include "utils.h"
-# include <float.h>
-# include <unistd.h>
 
-void		parsing_start(char *argv, t_scene *scene);
+# include "minirt.h"
+# include "utils.h"
+
+void		parsing_start(int argc, char *argv, t_scene *scene);
 void		check_object(char *line, t_scene *scene);
 
 void		check_file_name(char *argv);

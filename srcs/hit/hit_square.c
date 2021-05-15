@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:50:46 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 01:50:47 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/14 14:18:53 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ double		hit_spuare(t_object *world, t_ray *ray, t_hit_record *rec)
 	double a;
 	double b;
 
-	if (hit_plane(world, ray, rec) == FALSE)
+	if (hit_sq(world, ray, rec) == FALSE)
 		return (FALSE);
 	square = (t_square *)world->element;
 	v = vec3(0, 1, 0);

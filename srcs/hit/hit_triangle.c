@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:50:49 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 20:30:36 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/13 22:25:26 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ double			hit_triangle(t_object *world, t_ray *ray, t_hit_record *rec)
     triangle = (t_triangle *)world->element;
 	rec->t = -vdot(vminus(ray->orig, triangle->point[0]), triangle->normal) / vdot(triangle->normal, ray->dir);
     rec->p = ray_at(*ray, rec->t);
+	if (rec->t <= EPSILON || rec->t > rec->tmax)
+		return (FALSE);
     if (!(is_inside_tri(triangle->point[0], triangle->point[1], triangle->point[2], rec->p)))
         return (FALSE);
 	rec->normal = triangle->normal;

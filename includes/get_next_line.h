@@ -6,19 +6,15 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 17:54:42 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/07 15:41:55 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/14 11:16:11 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-
-# include <stdlib.h>
-# include <limits.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdio.h>
 # define BUFFER_SIZE 10
+
+# include "minirt.h"
 
 int		get_next_line(int fd, char **line);
 int		check_line(char *backup);

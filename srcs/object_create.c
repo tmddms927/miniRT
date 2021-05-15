@@ -6,14 +6,17 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:50:59 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/12 21:52:21 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/14 15:43:32 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "scene.h"
 #include "parsing.h"
 
-/* 리스트에 추가할 object 생성자 */
+/*
+** 리스트에 추가할 object 생성자
+*/
+
 t_object		*object(t_object_type type, void *element, t_color3 albedo)
 {
 	t_object	*new;
@@ -27,7 +30,10 @@ t_object		*object(t_object_type type, void *element, t_color3 albedo)
 	return (new);
 }
 
-/* 구 생성자 */
+/*
+** 구 생성자
+*/
+
 t_sphere	*sphere(t_point3 center, double radius)
 {
 	t_sphere	*sp;
@@ -40,7 +46,10 @@ t_sphere	*sphere(t_point3 center, double radius)
 	return (sp);
 }
 
-/* 평면 생성자 */
+/*
+** 평면 생성자
+*/
+
 t_plane		*plane(t_point3 point, t_vec3 normal)
 {
 	t_plane	*pn;
@@ -52,7 +61,10 @@ t_plane		*plane(t_point3 point, t_vec3 normal)
 	return (pn);
 }
 
-/* 사각형 생성자 */
+/*
+** 사각형 생성자
+*/
+
 t_square		*square(t_point3 center, t_vec3 normal, double side_size)
 {
 	t_square	*sq;
@@ -67,7 +79,10 @@ t_square		*square(t_point3 center, t_vec3 normal, double side_size)
 	return (sq);
 }
 
-/* 삼각형 생성자 */
+/*
+** 삼각형 생성자
+*/
+
 t_triangle		*triangle(t_point3 a, t_point3 b, t_point3 c)
 {
 	t_triangle	*triangle;
@@ -81,7 +96,10 @@ t_triangle		*triangle(t_point3 a, t_point3 b, t_point3 c)
 	return (triangle);
 }
 
-/* 원기둥 생성자 */
+/*
+** 원기둥 생성자
+*/
+
 t_cylinder	*cylinder(t_point3 point, t_vec3 normal, double radius, double height)
 {
 	t_cylinder	*cylinder;
@@ -95,7 +113,10 @@ t_cylinder	*cylinder(t_point3 point, t_vec3 normal, double radius, double height
 	return (cylinder);
 }
 
-/* 광원 생성자 */
+/*
+** 광원 생성자
+*/
+
 t_light		*light_point(t_point3 light_origin, t_color3 light_color, double bright_ratio)
 {
 	t_light	*light;
@@ -103,7 +124,7 @@ t_light		*light_point(t_point3 light_origin, t_color3 light_color, double bright
 	if(!(light = (t_light *)malloc(sizeof(t_light))))
 		error_message_errno("failed malloc");
 	light->origin = light_origin;
-	light->light_color = light_color;
+	light->light_color = vmult(light_color, bright_ratio);
 	light->bright_ratio = bright_ratio;
 	return (light);
 }

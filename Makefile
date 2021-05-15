@@ -1,17 +1,34 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/05/14 11:28:27 by seungoh           #+#    #+#              #
+#    Updated: 2021/05/15 10:29:50 by seungoh          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 OUT		=	miniRT
-CC		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra
+CC		=	clang
+CFLAGS	=	-Wall -Werror -Wextra -fsanitize=address -g
 CLIB	=	-Lmlx -lmlx -framework OpenGL -framework Appkit -Imlx 
 SRCDIR  =	./srcs/
 SRCNAME	=	main.c\
 			canvas.c\
 			utils.c\
 			ray.c\
-			vec3_utils.c\
 			object_create.c\
 			object_utils.c\
 			phong_lighting.c\
 			camera.c\
+			bmp_save.c\
+			\
+			vec3_utils/vec3_utils1.c\
+			vec3_utils/vec3_utils2.c\
+			vec3_utils/vec3_utils3.c\
+			vec3_utils/vec3_utils4.c\
 			\
 			hit/hit.c\
 			hit/hit_sphere.c\
@@ -33,10 +50,10 @@ SRCS	=	${addprefix ${SRCDIR}, ${SRCNAME}}
 INCDIR	=	./includes/
 OBJS	=	${SRCS:.c=.o}
 
+all		: $(OUT)
+
 test	:	re
 			./${OUT} 1.rt
-
-all		: $(OUT)
 
 .c.o	:
 	${CC} ${CFLAGS} -I ${INCDIR} -I ./mlx -c ${<} -o ${<:.c=.o}

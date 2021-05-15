@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 19:40:55 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/13 17:47:35 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 15:00:33 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,27 +70,9 @@ void			my_mlx_pixel_put(t_data *data, int x, int y, int color)
 }
 
 /*
-** escape 키로 윈도우 창 종료
-*/
-int				key_hook(int keycode, t_vars *vars)
-{
-	if (keycode == 53)
-	{
-		mlx_destroy_window(vars->mlx, vars->win);
-		exit(0);
-	}
-	if (keycode == 8)
-	{
-		next_camera(*vars);
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->scene->main_camera->image.img, 0, 0);
-	}
-	return (0);
-}
-
-/*
 ** .rt 파일에서 정보 받아오기
 */
-void			scene_init(t_scene *scene, char *argv)
+void			scene_init(t_scene *scene, char *argv, int argc)
 {
 	void		*temp;
 
@@ -98,7 +80,7 @@ void			scene_init(t_scene *scene, char *argv)
 	scene->world = object(SQUARE, square(point3(0, 0, 0), vec3(0, 0, 0), 0), color3(0, 0, 0));
 	scene->light = object(LIGHT_POINT, light_point(point3(0, 0, 0), color3(0, 0, 0), 0), color3(0, 0, 0));
 	scene->ambient.x = -1;
-	parsing_start(argv, scene);
+	parsing_start(argc, argv, scene);
 	temp = scene->camera;
 	scene->camera = scene->camera->next;
 	free(temp);
