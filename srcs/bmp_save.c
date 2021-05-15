@@ -6,7 +6,7 @@
 /*   By: seungoh <seungoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 18:00:17 by seungoh           #+#    #+#             */
-/*   Updated: 2021/05/15 18:20:53 by seungoh          ###   ########.fr       */
+/*   Updated: 2021/05/15 19:00:39 by seungoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,6 @@ void	check_save(char *argv, t_scene *scene)
 		return ;
 	if (!ft_strcmp(argv, "--save") || !ft_strcmp(argv, "--s"))
 		bmp_save(scene);
+	else
+		error_message_basic("missing camera or canvas");
 }
