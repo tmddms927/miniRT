@@ -1,11 +1,10 @@
 # miniRT
 
-📌 miniRT
-Compiling
-Run make.
-
-Running
-show window
-./miniRT Multi-objects.rt
-make bmp file
-./miniRT Multi-objects.rt --save
+🟣 Compiling</br>
+```make```</br>
+</br>
+🟣 Running</br>
+show window</br>
+```./miniRT Multi-objects.rt```</br>
+make bmp file</br>
+```./miniRT Multi-objects.rt --save```</br>
