@@ -3,13 +3,14 @@
 🟣 Compiling</br>
 ```make```</br>
 </br>
-</br>
 🟣 Running</br>
 show window</br>
-```./miniRT Multi-objects.rt```</br>
+```./miniRT testFile/1.rt```</br>
 make bmp file</br>
-```./miniRT Multi-objects.rt --save```</br>
+```./miniRT testFile/1.rt --save```</br>
 </br>
+🟣 test file</br>
+```cd testFile```</br>
 </br>
 🟣 Reference</br>
 https://raytracing.github.io/books/RayTracingInOneWeekend.html
