@@ -13,4 +13,5 @@ make bmp file</br>
 ```cd testFile```</br>
 </br>
 🟣 Reference</br>
-https://raytracing.github.io/books/RayTracingInOneWeekend.html
+https://raytracing.github.io/books/RayTracingInOneWeekend.html</br>
+https://en.wikipedia.org/wiki/Ray_tracing_(graphics)
